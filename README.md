@@ -1,5 +1,5 @@
-# TALLER DISEÑO Y ESTRUCTURACIÓN DE APLICACIONES DISTRIBUIDAS EN INTERNET - Camilo Cantillo T
-## En este taller usted explorará la arquitectura de las aplicaciones distribuidas. Concretamente, exploraremos la arquitectura de los servidores web y el protocolo http sobre el que están soportados.
+# TALLER MICROFRAMEWORKS WEB - Camilo Cantillo T
+## En este taller usted debe explorar la arquitectura del microframework WEB denominado sparkweb (https://sparkjava.com/). Este micro framework permite construir aplicaciones web de manera simple usando funciones lambda.
 
 ### Inicialización:
 Estas instrucciones te ayudarán a obtener una copia del proyecto en funcionamiento en tu máquina local para desarrollo y pruebas. Consulta la sección de "Despliegue" para obtener notas sobre cómo implementar el proyecto en un sistema en vivo.
@@ -16,7 +16,7 @@ Cosas que necesitas instalar y cómo hacerlo.
 1. Para tener una copia en local del repositorio debemos abrir la termial y estar ubicado en la carpeta que queremos clonar el repositorio, seguido a esto utilizamos el comando:
 
 ```
-https://github.com/CamiloCanta/AREP_lab2
+https://github.com/CamiloCanta/AREP_lab3
 ```
 
 2. Preferencialmente, solemos abrir el proyecto en una IDE, por lo cual abriremos el proyecto en esta misma, abriremos la terminal y ejecutamos el codigo:
@@ -40,9 +40,7 @@ http://localhost:35000
 5. Así se verá cuando se realice una consulta:
 
    
-![img_2.png](src/images/img_2.png)
-
-![img_3.png](src/images/img_3.png)
+![img.png](img.png)
 
 ### Correr los tests
 En nuestra IDE usamos el siguiente codigo para correr las pruebas unitarias:

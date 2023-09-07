@@ -1,18 +1,25 @@
 package edu.escuelaing.arep.app;
+import edu.escuelaing.arep.app.sparkServices.Spark;
+
+
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Objects;
 
 public class HttpServer {
+    private static HttpServer instance = new HttpServer();
+    public static HttpServer getInstance(){
+        return instance;
+    }
 
-    public static void main(String[] args) throws IOException {
+    public void run(String[] args) throws IOException {
 
         ServerSocket serverSocket = null;
         try {
@@ -77,6 +84,7 @@ public class HttpServer {
                     responseBody = getFile(uriString);
                     outputLine = getResponse(responseBody);
                 }
+
             } else {
                 outputLine = getIndexResponse();
             }
@@ -112,12 +120,12 @@ public class HttpServer {
         return "<!DOCTYPE html>\n" +
                 "<html>\n" +
                 "    <head>\n" +
-                "        <title>APLICACIONES DISTRIBUIDAS EN INTERNET</title>\n" +
+                "        <title>MICROFRAMEWORKS WEB</title>\n" +
                 "        <meta charset=\"UTF-8\">\n" +
                 "        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n" +
                 "    </head>\n" +
                 "    <body>\n" +
-                "        <h1>TALLER DISENO Y ESTRUCTURACION DE APLICACIONES DISTRIBUIDAS EN INTERNET</h1>\n" +
+                "        <h1>MICROFRAMEWORKS WEB</h1>\n" +
                 "        <form id=\"redirectForm\">\n" +
                 "            <input type=\"text\" id=\"urlInput\" placeholder=\"Introduce la ruta\">\n" +
                 "            <button type=\"button\" onclick=\"redirectToURL()\">Buscar</button>\n" +
@@ -145,5 +153,14 @@ public class HttpServer {
                 + "Content-Type: image/jpg \r\n"
                 + "\r\n";
 
+    }
+
+    public static void main(String[] args) throws IOException {
+        HttpServer server = HttpServer.getInstance();
+        Spark.get("",(req,ans)->{
+            ans.setType("application/json");
+            return ans.getResponse();
+        });
+        server.run(args);
     }
 }
